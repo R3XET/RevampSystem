@@ -1,0 +1,155 @@
+command: cc - aliases: chatcolor - permission: revampsystem.command.chatcolor
+command: settings - aliases: options
+
+
+
+revampsystem.grant.disallow. disallow a grant
+
+command: color - aliases: namecolor - permission: revampsystem.command.color
+command: globallist - aliases: glist - permission: revampsystem.command.glist
+command: list - aliases: none - permission: revampsystem.command.list
+command: revampsystem - aliases: core, revamp - permission: none
+command: settings - aliases: options - permission: none
+command: tag - aliases: tags - permission: revampsystem.command.tags
+command: tagsreload - aliases: reloadtags - permission: revampsystem.command.tagsreload
+command: grant - aliases: none - permission: revampsystem.command.grant
+command: grants - aliases: none - permission: revampsystem.command.grants
+command: rank - aliases: ranks - permission: revampsystem.command.rank
+command: setrank - aliases: none - permission: revampsystem.command.setrank, revampsystem.grant.all
+command: staffrollback - aliases: none - permission: punishments.command.staffrollback
+command: staffhistory - aliases: none - permission: punishments.command.staffhistory
+
+
+
+
+command: punishinfo - aliases: pinfo, baninfo, pinfo, warninfo, warns - permission: punishments.command.staffhistory
+command: unban - aliases: none - permission: punishments.command.unban
+command: unblacklist - aliases: unbl, unblplayer, unblacklistplayer - permission: punishments.command.unblacklist
+command: unmute - aliases: none - permission: punishments.command.unmute
+command: ban - aliases: tempban - permission: punishments.command.ban
+command: banip - aliases: tempbanip, ipban, iptempban - permission: punishments.command.banip
+command: blacklist - aliases: bl, blplayer, blacklistplayer - permission: punishments.command.blacklist
+command: check - aliases: cpunishments, checkpunishments - permission: punishments.command.check
+command: kick - aliases: kickplayer - permission: punishments.command.kick
+command: mute - aliases: tempmute - permission: punishments.command.mute
+command: warn - aliases: tempmute - permission: punishments.command.warn
+
+
+
+
+
+command: blacklistedpermissions - aliases: none - permission: revampsystem.command.blacklistedpermissions
+command: info - aliases: seen - permission: revampsystem.command.info
+command: setpermission - aliases: setperm - permission: revampsystem.command.setpermission
+
+command: coins - aliases: none - permission: revampsystem.command.coins, revampsystem.command.coins.admin
+command: day - aliases: none - permission: none
+command: discord - aliases: none - permission: none
+command: helpop - aliases: request - permission: revampsystem.command.helpop, revampsystem.helpop.see
+command: night - aliases: none - permission: none
+command: ping - aliases: latency, ms - permission: none
+command: playtime - aliases: none - permission: revampsystem.command.playtime
+command: store - aliases: none - permission: none
+command: teamspeak - aliases: ts, ts3 - permission: none
+command: twitter - aliases: none - permission: none
+command: panic - aliases: none - permission: revampsystem.command.panic
+command: unpanic - aliases: none - permission: revampsystem.command.unpanic
+
+//command: tps - aliases: lag, lagg - permission: revampsystem.command.tps
+
+command: ignore - aliases: none - permission: none
+command: message - aliases: msg, tell, whisper - permission: revampsystem.messages.bypass.toggled, revampsystem.messages.bypass.ignore
+command: reply - aliases: r - permission: revampsystem.messages.bypass.toggled, revampsystem.messages.bypass.ignore
+command: togglemessages - aliases: tpm, msgtoggle, togglepm - permission: none
+command: togglesounds - aliases: tpms, togglepms, sounds - permission: none
+
+
+
+
+
+command: gamemode - aliases: gm - permission: revampsystem.command.gamemode
+command: gma - aliases: gm2 - permission: revampsystem.command.gamemode
+command: gmc - aliases: gm1 - permission: revampsystem.command.gamemode
+command: gms - aliases: gm0 - permission: revampsystem.command.gamemode
+
+
+command: addlore - aliases: additemlore - permission: revampsystem.command.addlore
+command: removelore - aliases: removeitemlore - permission: revampsystem.command.removelore
+command: rename - aliases: renameitem - permission: revampsystem.command.rename
+
+
+command: teleport - aliases: tp - permission: revampsystem.command.teleport
+command: teleporthere - aliases: tphere - permission: revampsystem.command.teleporthere
+command: teleportposition - aliases: tppos - permission: revampsystem.command.teleportposition
+command: teleportworld - aliases: tpworld - permission: revampsystem.command.teleportworld
+command: top - aliases: none - permission: revampsystem.command.top
+
+
+command: adminchat - aliases: ac - permission: revampsystem.adminchat
+command: alert - aliases: ac - permission: revampsystem.command.alert
+command: auth - aliases: none - permission: revampsystem.command.auth
+
+command: back - aliases: lastlocation, backlocation - permission: revampsystem.command.back
+command: broadcast - aliases: bc - permission: revampsystem.command.broadcast
+command: chat - aliases: none - permission: revampsystem.command.chat
+command: clear - aliases: clearinv - permission: revampsystem.command.clear
+command: craft - aliases: none - permission: revampsystem.command.craft
+command: feed - aliases: none - permission: revampsystem.command.feed
+command: fly - aliases: none - permission: revampsystem.command.fly, revampsystem.command.fly.others
+command: freeze - aliases: ss, screenshare - permission: revampsystem.command.freeze
+command: gfreeze - aliases: guifreeze, guiss, guiscreenshare - permission: revampsystem.command.guifreeze
+command: heal - aliases: none - permission: revampsystem.command.heal
+command: invsee - aliases: none - permission: revampsystem.command.invsee
+command: getips - aliases: getip - permission: revampsystem.command.ips
+command: massay - aliases: none - permission: revampsystem.command.massay
+command: more - aliases: none - permission: revampsystem.command.more
+command: notes - aliases: note - permission: revampsystem.command.notes
+command: repair - aliases: fix - permission: revampsystem.command.repair
+command: reports - aliases: none - permission: revampsystem.command.reports, revampsystem.reports.see
+command: servermanager - aliases: none - permission: revampsystem.command.servermanager
+command: setjoinlocation - aliases: none - permission: revampsystem.command.setjoinlocation
+command: skull - aliases: head, getskull, gethead - permission: revampsystem.command.skull
+command: speed - aliases: none - permission: revampsystem.command.speed
+command: staffalerts - aliases: tsm, togglestaffmessages - permission: revampsystem.command.staffalerts
+command: staffchat - aliases: sc - permission: revampsystem.command.staffchat
+command: staffmode - aliases: mod, staff, modmode - permission: revampsystem.command.staffmode
+command: sudo - aliases: sudoplayer - permission: revampsystem.command.sudo
+command: vanish - aliases: v, sv - permission: revampsystem.command.vanish
+
+
+
+
+
+
+command: cc - aliases: chatcolor - permission: revampsystem.command.chatcolor
+command: cc - aliases: chatcolor - permission: revampsystem.command.chatcolor
+command: cc - aliases: chatcolor - permission: revampsystem.command.chatcolor
+command: cc - aliases: chatcolor - permission: revampsystem.command.chatcolor
+command: cc - aliases: chatcolor - permission: revampsystem.command.chatcolor
+command: cc - aliases: chatcolor - permission: revampsystem.command.chatcolor
+command: cc - aliases: chatcolor - permission: revampsystem.command.chatcolor
+
+Permissions:
+
+- revampsystem.chat.bypass.muted
+- revampsystem.chat.bypass.delay
+- revampsystem.chat.bypass.global.chat.setting
+- revampsystem.chat.colorcodes
+
+punishments.see.silent - access to see silent punishments
+
+
+revampsystem.filter.bypass - access to bypass filter system.
+revampsystem.filter.alerts - ability to see alerts of filtered messages.
+
+revampsystem.vanish.priority.<priority> - give vanish priority
+
+revampsystem.tags.<tag_name> - get access to tag
+
+grant.disallow.<rank_name> - disallow specific grant
+
+revampsystem.chat.color.all - access to all chat colors
+revampsystem.chat.color.<color> - access to specific chat color
+
+revampsystem.name.color.all - access to all name color
+revampsystem.name.color.<color> - access to specific name color

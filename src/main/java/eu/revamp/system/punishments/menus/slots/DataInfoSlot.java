@@ -1,0 +1,52 @@
+package eu.revamp.system.punishments.menus.slots;
+
+import eu.revamp.spigot.utils.date.DateUtils;
+import eu.revamp.spigot.utils.item.ItemBuilder;
+import eu.revamp.system.menu.slots.Slot;
+import eu.revamp.system.punishments.PunishmentPlugin;
+import eu.revamp.system.punishments.player.PunishPlayerData;
+import lombok.AllArgsConstructor;
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.OfflinePlayer;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+
+@AllArgsConstructor
+public class DataInfoSlot extends Slot {
+    private PunishPlayerData playerData;
+    private int slot;
+
+    @Override
+    public ItemStack getItem(Player player) {
+        OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(playerData.getUniqueId());
+
+        ItemBuilder item = new ItemBuilder(Material.SKULL_ITEM);
+        item.setDurability((short) 3);
+        item.setSkullOwner(playerData.getPlayerName());
+        item.setName(PunishmentPlugin.MAIN_COLOR + "Player Info");
+        item.addLoreLine("");
+        item.addLoreLine(PunishmentPlugin.MAIN_COLOR + "Name&7: " + PunishmentPlugin.SECONDARY_COLOR + playerData.getPlayerName());
+        item.addLoreLine(PunishmentPlugin.MAIN_COLOR + "UUID&7: " + PunishmentPlugin.SECONDARY_COLOR + playerData.getUniqueId().toString());
+
+        Player onlinePlayer = Bukkit.getPlayer(playerData.getPlayerName());
+        if (onlinePlayer != null) {
+            item.addLoreLine(PunishmentPlugin.MAIN_COLOR + "Last seen&7: " + PunishmentPlugin.SECONDARY_COLOR + "&aNow");
+        } else {
+            if (playerData.getLastSeen() != null) {
+                item.addLoreLine(PunishmentPlugin.MAIN_COLOR + "Last seen&7: " + PunishmentPlugin.SECONDARY_COLOR + playerData.getLastSeen());
+            } else {
+                item.addLoreLine(PunishmentPlugin.MAIN_COLOR + "Last seen&7: " + PunishmentPlugin.SECONDARY_COLOR + "&cNever played before!");
+            }
+        }
+        item.addLoreLine(PunishmentPlugin.MAIN_COLOR + "First Joined&7: " + PunishmentPlugin.SECONDARY_COLOR + (offlinePlayer.getFirstPlayed() != 0 ? DateUtils.getDate(offlinePlayer.getFirstPlayed()) : "&cNever played before!"));
+        item.addLoreLine("");
+
+        return item.toItemStack();
+    }
+
+    @Override
+    public int getSlot() {
+        return this.slot;
+    }
+}

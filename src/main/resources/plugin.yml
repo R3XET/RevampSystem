@@ -1,0 +1,21 @@
+name: 'RevampSystem'
+version: "1.0"
+authors:
+  - 'R3XET'
+main: 'eu.revamp.system.plugin.RevampSystem'
+description: 'RevampSystem made by R3XET'
+softdepend:
+  - PlaceholderAPI
+  - MVdWPlaceholderAPI
+  - RevampHCF
+  - RevampHub
+  - RevampPractice
+  - RevampMeetup
+  - RevampUHCGames
+  - Vault
+
+loadbefore:
+  - SuperiorPrison
+
+commands:
+  kit:

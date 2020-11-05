@@ -1,0 +1,5 @@
+name: 'RevampSystem'
+version: "1.0"
+authors:
+  - 'R3XET'
+main: eu.revamp.system.bungee.RevampSystemBungee
