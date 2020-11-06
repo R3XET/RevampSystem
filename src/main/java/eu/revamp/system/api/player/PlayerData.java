@@ -140,13 +140,6 @@ public class PlayerData {
         if (document == null) {
             return;
         }
-/*
-        System.out.println("TIME : " + document.getLong("playerTime"));
-        System.out.println("LAST SERVER : " + document.getString("lastServer"));
-        System.out.println("LAST SEEN 1: " + this.lastSeen);
-
-        System.out.println("LAST SEEN 2: " + document.getLong("lastseen"));
-*/
 
         this.grants = GrantSerilization.deserilizeGrants(document.getString("grants"));
         this.grants.removeIf(Objects::isNull);
@@ -154,8 +147,7 @@ public class PlayerData {
         this.reports = ReportSerilization.deserilizeReports(document.getString("reports"));
         this.address = document.getString("address");
 
-        // Commented because of random nullpointer exception wtf man
-        //this.lastSeen = document.getLong("lastseen");
+        this.lastSeen = document.getLong("lastseen");
         this.lastServer = document.getString("lastServer");
         this.staffChat = document.getBoolean("staffChat");
         this.adminChat = document.getBoolean("adminChat");

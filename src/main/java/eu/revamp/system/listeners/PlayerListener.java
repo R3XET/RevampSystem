@@ -383,7 +383,7 @@ public class PlayerListener implements Listener {
         long playTime = playerData.getPlayerTime();
         playerData.setPlayerTime(sessionTime + playTime);
         // First set variable and then save to MongoDB
-        //playerData.saveData("playerTime", playerData.getPlayerTime());
+        playerData.saveData("playerTime", playerData.getPlayerTime());
 
         if (playerData.getPanicSystem().isInPanic()) {
             if (plugin.getCoreConfig().getBoolean("panic.remove-panic-on-quit")) {

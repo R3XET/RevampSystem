@@ -22,6 +22,10 @@ public class SpawnCommand extends BaseCommand {
             float yaw = plugin.getCoreConfig().getInt("spawn.location.yaw");
             float pitch = plugin.getCoreConfig().getInt("spawn.location.pitch");
             World world = Bukkit.getWorld(plugin.getCoreConfig().getString("spawn.location.world"));
+            if (world == null) {
+                player.sendMessage(Language.TELEPORT_WORLD_INVALID.toString());
+                return;
+            }
             player.teleport(new Location(world, x, y, z, yaw, pitch));
             return;
         }
@@ -33,7 +37,7 @@ public class SpawnCommand extends BaseCommand {
             configFile.set("spawn.location.z", player.getLocation().getZ());
             configFile.set("spawn.location.yaw", player.getLocation().getYaw());
             configFile.set("spawn.location.pitch", player.getLocation().getPitch());
-
+            configFile.set("spawn.location.world", player.getWorld());
             configFile.save();
             
             player.sendMessage(Language.SPAWN_SET.toString());
