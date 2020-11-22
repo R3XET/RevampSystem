@@ -147,7 +147,9 @@ public class PlayerData {
         this.reports = ReportSerilization.deserilizeReports(document.getString("reports"));
         this.address = document.getString("address");
 
-        this.lastSeen = document.getLong("lastseen");
+        if (document.containsKey("lastseen")){
+            this.lastSeen = document.getLong("lastseen");
+        }
         this.lastServer = document.getString("lastServer");
         this.staffChat = document.getBoolean("staffChat");
         this.adminChat = document.getBoolean("adminChat");

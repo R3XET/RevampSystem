@@ -84,7 +84,7 @@ public class StaffRollBackCommand extends BaseCommand {
                             long addedAt = document.getLong("addedAt");
 
                             if (check <= addedAt) {
-                                plugin.getMongoManager().getBans().deleteOne(document);
+                                plugin.getMongoManager().getMutes().deleteOne(document);
                                 if (document.containsKey("active") && document.getBoolean("active")) {
                                     active.getAndIncrement();
                                 } else {
@@ -119,7 +119,7 @@ public class StaffRollBackCommand extends BaseCommand {
                             long addedAt = document.getLong("addedAt");
 
                             if (check <= addedAt) {
-                                plugin.getMongoManager().getBans().deleteOne(document);
+                                plugin.getMongoManager().getBlacklists().deleteOne(document);
                                 if (document.containsKey("active") && document.getBoolean("active")) {
                                     active.getAndIncrement();
                                 } else {
@@ -154,7 +154,7 @@ public class StaffRollBackCommand extends BaseCommand {
                             long addedAt = document.getLong("addedAt");
 
                             if (check <= addedAt) {
-                                plugin.getMongoManager().getBans().deleteOne(document);
+                                plugin.getMongoManager().getWarns().deleteOne(document);
                                 if (document.containsKey("active") && document.getBoolean("active")) {
                                     active.getAndIncrement();
                                 } else {

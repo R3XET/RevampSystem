@@ -256,7 +256,8 @@ public enum Language {
     TELEPORT_WORLD_USAGE("TELEPORT.WORLD.USAGE", "{prefix} &cCorrect usage: /teleportworld (world)"),
     TELEPORT_WORLD_INVALID("TELEPORT.WORLD.INVALID-WORLD", "{prefix} &bYou have entered invalid world."),
     TELEPORT_WORLD_ALREADY_IN_WORLD("TELEPORT.WORLD.ALREADY-IN-WORLD", "{prefix} &bYou are already in that world."),
-    TELEPORT_WORLD_SUCESS("TELEPORT.WORLD.SUCESS", "{prefix} &bYou've been teleported to &3%world% &bworld."),
+    TELEPORT_WORLD_SUCCESS("TELEPORT.WORLD.SUCCESS", "{prefix} &bYou've been teleported to &3%world% &bworld."),
+    TELEPORT_ALL_SUCCESS("TELEPORT.ALL.SUCCESS", "{prefix} &bYou've been teleported to &3%player% &b."),
 
     RENAME_USAGE("RENAME.USAGE", "{prefix} &cCorrect usage: /rename (displayName)"),
     RENAME_ITEM_NULL("RENAME.INVALID-ITEM", "{prefix} &bYou can't be holding  air."),
@@ -434,6 +435,9 @@ public enum Language {
 
     PLAYER_DAY_SET("DAY-SET", "{prefix} &aTime updated to day."),
     PLAYER_NIGHT_SET("NIGHT-SET", "{prefix} &aTime updated to night."),
+
+
+    ALLPLAYERS("ALLPLAYERS", "{prefix} &a%players% &bhave joined the server."),
 
 
     END("", "");

@@ -30,7 +30,7 @@ public class TeleportWorldCommand extends BaseCommand {
             return;
         }
         player.teleport(new Location(world, 0, world.getHighestBlockYAt(0, 0) + 30, 0));
-        player.sendMessage(Language.TELEPORT_WORLD_SUCESS.toString()
+        player.sendMessage(Language.TELEPORT_WORLD_SUCCESS.toString()
                 .replace("%world%", world.getName()));
 
     }

@@ -14,9 +14,9 @@ import org.bukkit.inventory.ItemStack;
 import java.util.*;
 
 public class StaffModeManagement extends Manager {
-    private ConfigFile configFile = plugin.getStaffModeFile();
-    private List<StaffModeItem> items = new ArrayList<>();
-    private Map<UUID, LastInventory> inventories = new HashMap<>();
+    private final ConfigFile configFile = plugin.getStaffModeFile();
+    private final List<StaffModeItem> items = new ArrayList<>();
+    private final Map<UUID, LastInventory> inventories = new HashMap<>();
 
     public StaffModeManagement(RevampSystem plugin) {
         super(plugin);

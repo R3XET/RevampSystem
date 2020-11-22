@@ -14,7 +14,7 @@ import org.bukkit.inventory.ItemStack;
 
 public class EnchantCommand extends BaseCommand {
 
-    @Command(name = "enchant", permission = "revampsystem.command.enchant", aliases = "enchantitem", inGameOnly = true)
+    @Command(name = "enchant", permission = "revampsystem.command.enchant", aliases = "enchantitem")
     public void onCommand(CommandArgs args) {
         Tasks.runAsync(plugin, () -> {
             Player player = (Player)args.getSender();

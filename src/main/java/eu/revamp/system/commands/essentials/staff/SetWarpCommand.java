@@ -19,13 +19,12 @@ public class SetWarpCommand extends BaseCommand {
         }
         String warpName = args[0];
         ConfigFile configFile = plugin.getCoreConfig();
-        configFile.set("warps." + warpName + ".location.world", player.getLocation().getWorld());
         configFile.set("warps." + warpName + ".location.x", player.getLocation().getX());
         configFile.set("warps." + warpName + ".location.y", player.getLocation().getY());
         configFile.set("warps." + warpName + ".location.z", player.getLocation().getZ());
         configFile.set("warps." + warpName + ".location.yaw", player.getLocation().getYaw());
         configFile.set("warps." + warpName + ".location.pitch", player.getLocation().getPitch());
-        configFile.set("warps." + warpName + ".location.world", player.getLocation().getWorld());
+        configFile.set("warps." + warpName + ".location.world", player.getLocation().getWorld().toString());
 
         configFile.save();
         player.sendMessage(Language.WARP_SET.toString());

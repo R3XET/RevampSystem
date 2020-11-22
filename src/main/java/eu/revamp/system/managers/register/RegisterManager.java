@@ -77,6 +77,7 @@ public class RegisterManager {
     private TeleportHereCommand teleportHereCommand;
     private TeleportPositionCommand teleportPositionCommand;
     private TeleportWorldCommand teleportWorldCommand;
+    private TeleportAllCommand teleportAllCommand;
     private TopCommand topCommand;
     private AdminChatCommand adminChatCommand;
     private AlertCommand alertCommand;
@@ -157,6 +158,7 @@ public class RegisterManager {
     private NickCommand nickCommand;
     private ExpCommand expCommand;
     private SpawnCommand spawnCommand;
+    private AllPlayers allPlayers;
 
     @RegisterMethod
     public void loadCommands() {

@@ -29,7 +29,11 @@ public class TeleportHereCommand extends BaseCommand {
         target.teleport(player);
         player.sendMessage(Language.TELEPORT_HERE_TO_SENDER.toString()
                 .replace("%target%", target.getDisplayName()));
-        target.sendMessage(Language.TELEPORT_HERE_TO_TARGET.toString()
-                .replace("%player%", player.getDisplayName()));
+        //Added config option
+        if (plugin.getCoreConfig().getBoolean("teleport-commands-send-teleported-message-to-target")){
+            target.sendMessage(Language.TELEPORT_HERE_TO_TARGET.toString()
+                    .replace("%player%", player.getDisplayName()));
+        }
+
     }
 }

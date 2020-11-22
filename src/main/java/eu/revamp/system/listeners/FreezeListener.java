@@ -122,9 +122,13 @@ public class FreezeListener implements Listener {
 
         if (!this.isFrozen(player)) return;
 
+        // Added freeze remove on quit
         if (plugin.getCoreConfig().getBoolean("un-freeze-player-on-leave")){
             PlayerData playerData = plugin.getPlayerManagement().getPlayerData(player.getUniqueId());
             playerData.setFrozen(false);
+            playerData.setGuiFrozen(false);
+            playerData.saveData("guiFrozen", false);
+            playerData.saveData("frozen", false);
         }
 
         JsonChain jsonChain = new JsonChain();

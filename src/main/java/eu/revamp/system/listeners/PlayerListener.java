@@ -63,11 +63,13 @@ public class PlayerListener implements Listener {
         playerData.getGlobalCooldowns().loadCooldowns();
         playerData.loadPunishmentsPerformed();
 
+        // Removed staff auth
+        /*
         if (!playerData.getAddress().equalsIgnoreCase(event.getAddress().getHostAddress()) || playerData.isStaffAuth()) {
             playerData.setStaffAuth(true);
         } else {
             playerData.setStaffAuth(false);
-        }
+        }*/
     }
 
     @EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
@@ -260,29 +262,6 @@ public class PlayerListener implements Listener {
             }
         });
 
-        // OLD BUGS INVENTORY LOST
-        /*
-        Tasks.runLater(this.plugin, () -> {
-            if (plugin.getCoreConfig().getBoolean("staff-mode-on-join.enabled")) {
-                if (player.hasPermission(plugin.getCoreConfig().getString("staff-mode-on-join.permission"))) {
-                    if (player.hasPermission("revampsystem.command.staffmode")) {
-                        plugin.getStaffModeManagement().enableStaffMode(player);
-                    }
-                }
-            }
-        }, 10L);
-
-*/
-        Tasks.runAsync(this.plugin, () -> {
-            if (plugin.getCoreConfig().getBoolean("staff-mode-on-join.enabled")) {
-                if (player.hasPermission(plugin.getCoreConfig().getString("staff-mode-on-join.permission"))) {
-                    if (player.hasPermission("revampsystem.command.staffmode")) {
-                        plugin.getStaffModeManagement().enableStaffMode(player);
-                    }
-                }
-            }
-        });
-
         Tasks.runAsync(plugin, () -> {
             PunishPlayerData punishPlayerData = this.plugin.getPunishmentPlugin().getProfileManager().getPlayerDataFromUUID(player.getUniqueId());
 
@@ -328,6 +307,20 @@ public class PlayerListener implements Listener {
         } else {
             player.removePotionEffect(PotionEffectType.BLINDNESS);
         }
+
+        // OLD BUGS INVENTORY LOST
+
+        Tasks.runLater(this.plugin, () -> {
+            if (plugin.getCoreConfig().getBoolean("staff-mode-on-join.enabled")) {
+                if (player.hasPermission(plugin.getCoreConfig().getString("staff-mode-on-join.permission"))) {
+                    if (player.hasPermission("revampsystem.command.staffmode")) {
+                        plugin.getStaffModeManagement().enableStaffMode(player);
+                    }
+                }
+            }
+        }, 10L);
+
+
     }
 
     @EventHandler
@@ -349,6 +342,14 @@ public class PlayerListener implements Listener {
 
         if (playerData.isInStaffMode()) {
             plugin.getStaffModeManagement().disableStaffMode(player);
+        }
+
+        // Added freeze remove on quit
+        if (plugin.getCoreConfig().getBoolean("un-freeze-player-on-leave")){
+            playerData.setFrozen(false);
+            playerData.setGuiFrozen(false);
+            playerData.saveData("guiFrozen", false);
+            playerData.saveData("frozen", false);
         }
     }
 

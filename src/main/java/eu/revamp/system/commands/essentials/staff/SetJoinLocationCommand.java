@@ -19,7 +19,7 @@ public class SetJoinLocationCommand extends BaseCommand {
         configFile.set("on-join.teleport.location.z", player.getLocation().getZ());
         configFile.set("on-join.teleport.location.yaw", player.getLocation().getYaw());
         configFile.set("on-join.teleport.location.pitch", player.getLocation().getPitch());
-        configFile.set("on-join.teleport.location.world", player.getLocation().getWorld());
+        configFile.set("on-join.teleport.location.world", player.getLocation().getWorld().toString());
 
         configFile.save();
         player.sendMessage(Language.JOIN_SPAWN_SET.toString());

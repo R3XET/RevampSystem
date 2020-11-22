@@ -93,11 +93,13 @@ public class PunishmentsListener implements Listener {
 
             event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_BANNED, kickMessage.toString().replace(", ", "\n"));
 
-            plugin.getServerManagement().getGlobalPlayers().stream().filter(player -> player.hasPermission("revampsystem.punishments.join.alert")).forEach(player -> {
-                player.sendMessage(PunishmentsLanguage.JOIN_BLACKLISTED.toString()
-                        .replace("%player%", name)
-                        .replace("%expire%", "Never"));
-            });
+            if (plugin.getCoreConfig().getBoolean("login.announce-tried-to-join-blacklisted")) {
+                plugin.getServerManagement().getGlobalPlayers().stream().filter(player -> player.hasPermission("revampsystem.punishments.join.alert")).forEach(player -> {
+                    player.sendMessage(PunishmentsLanguage.JOIN_BLACKLISTED.toString()
+                            .replace("%player%", name)
+                            .replace("%expire%", "Never"));
+                });
+            }
             return;
         }
 
@@ -136,11 +138,14 @@ public class PunishmentsListener implements Listener {
 
             event.disallow(AsyncPlayerPreLoginEvent.Result.KICK_BANNED, kickMessage.toString().replace(", ", "\n"));
 
-            plugin.getServerManagement().getGlobalPlayers().stream().filter(player -> player.hasPermission("revampsystem.punishments.join.alert")).forEach(player -> {
-                player.sendMessage(PunishmentsLanguage.JOIN_BANNED.toString()
-                        .replace("%player%", name)
-                        .replace("%expire%", activeBan.getNiceExpire()));
-            });
+            // Added config option
+            if (plugin.getCoreConfig().getBoolean("login.announce-tried-to-join-banned")){
+                plugin.getServerManagement().getGlobalPlayers().stream().filter(player -> player.hasPermission("revampsystem.punishments.join.alert")).forEach(player -> {
+                    player.sendMessage(PunishmentsLanguage.JOIN_BANNED.toString()
+                            .replace("%player%", name)
+                            .replace("%expire%", activeBan.getNiceExpire()));
+                });
+            }
             return;
         }
         AtomicReference<Punishment> IPBan = new AtomicReference<>();

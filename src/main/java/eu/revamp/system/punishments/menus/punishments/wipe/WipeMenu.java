@@ -2,9 +2,9 @@ package eu.revamp.system.punishments.menus.punishments.wipe;
 
 import eu.revamp.spigot.utils.item.ItemBuilder;
 import eu.revamp.system.api.player.PlayerData;
+import eu.revamp.system.enums.Language;
 import eu.revamp.system.menu.menu.AquaMenu;
 import eu.revamp.system.menu.slots.Slot;
-import eu.revamp.system.utilities.chat.Color;
 import lombok.AllArgsConstructor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -24,7 +24,7 @@ public class WipeMenu extends AquaMenu {
         List<Slot> slots = new ArrayList<>();
 
 
-
+        slots.add(new BansSlot());
         for (int i = 0; i < 36; i++) {
             if (!Slot.hasSlot(slots, i)) {
                 slots.add(Slot.getGlass(i));
@@ -35,7 +35,7 @@ public class WipeMenu extends AquaMenu {
 
     @Override
     public String getName(Player player) {
-        return Color.translate("&7Wipe punishments");
+        return "&7Wipe punishments";
     }
 
 
@@ -63,7 +63,12 @@ public class WipeMenu extends AquaMenu {
 
         @Override
         public void onClick(Player player, int slot, ClickType clickType) {
-            // TODO FINISH
+            player.sendMessage(Language.STAFF_ROLLBACK_WIPING.toString()
+                    .replace("%type%", "bans"));
+
+            plugin.getMongoManager().getBans().find().into(new ArrayList<>()).forEach(document -> {
+                plugin.getMongoManager().getBans().deleteOne(document);
+            });
         }
     }
 

@@ -353,3 +353,7 @@ GLOBAL_LIST:
   SERVER_FORMAT: " &3* &b%server% &7(&3%online%/%max_online%&7)"
 #Please use a valid duration like '30d', '2d', '30m'
 purchasable-ranks-duration: "30d"
+login:
+  announce-tried-to-join-banned: true
+  announce-tried-to-join-blacklisted: true
+teleport-commands-send-teleported-message-to-target: true

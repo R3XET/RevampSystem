@@ -48,6 +48,15 @@ public abstract class AquaMenu {
 
         Inventory inventory = Bukkit.createInventory(player, this.getInventorySize(this.slots), title);
 
+        setItems(player, inventory);
+
+        plugin.getMenuManager().getOpenedMenus().put(player.getUniqueId(), this);
+        player.openInventory(inventory);
+
+        this.onOpen(player);
+    }
+
+    private void setItems(Player player, Inventory inventory) {
         this.slots.forEach(slot -> {
             inventory.setItem(slot.getSlot(), slot.getItem(player));
 
@@ -57,11 +66,6 @@ public abstract class AquaMenu {
                 });
             }
         });
-
-        plugin.getMenuManager().getOpenedMenus().put(player.getUniqueId(), this);
-        player.openInventory(inventory);
-
-        this.onOpen(player);
     }
 
     public void update(Player player) {
@@ -92,15 +96,7 @@ public abstract class AquaMenu {
          */
         Inventory temporaryInventory = Bukkit.createInventory(player, inventory.getSize(), inventory.getTitle());
 
-        this.slots.forEach(slot -> {
-            temporaryInventory.setItem(slot.getSlot(), slot.getItem(player));
-
-            if (slot.getSlots() != null) {
-                Arrays.stream(slot.getSlots()).forEach(extra -> {
-                    temporaryInventory.setItem(extra, slot.getItem(player));
-                });
-            }
-        });
+        setItems(player, temporaryInventory);
 
         plugin.getMenuManager().getOpenedMenus().remove(player.getUniqueId());
         plugin.getMenuManager().getOpenedMenus().put(player.getUniqueId(), this);
